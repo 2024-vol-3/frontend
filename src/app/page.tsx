@@ -1,10 +1,13 @@
-"use client";
-import { IssueForm } from "@/form/IssueForm";
+
+import Card from "@/component/card";
+
 
 export default function Home() {
   return (
     <div>
-      <IssueForm />
+
+      <Card />
+
     </div>
   );
 }
