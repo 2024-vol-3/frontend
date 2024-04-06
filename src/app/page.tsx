@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
     <div>トップページ(仮)</div>
-    <Link href="/categories">
+    <Link href="/category">
       <Button variant="solid">単語帳一覧はコチラ</Button>
     </Link>
     </>
