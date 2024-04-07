@@ -1,4 +1,4 @@
-import Header from "@/component/header";
+import Header from "@/app/_components/header";
 
 export default function CategoryLayout({
   children,
@@ -7,8 +7,8 @@ export default function CategoryLayout({
 }>) {
   return (
     <>
-    <Header />
-    {children}
+      <Header />
+      {children}
     </>
   );
 }
