@@ -1,4 +1,5 @@
 "use client";
+import { Textarea } from "@yamada-ui/react";
 import { useFormContext } from "react-hook-form";
 
 type Props = {
@@ -16,7 +17,16 @@ export function TextAreaField(props: Props) {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <textarea id={id} {...register(id)} />
+      <div>
+        <Textarea
+          w="1000px"
+          h="350px"
+          m="5px 0"
+          placeholder="解答を入力"
+          id={id}
+          {...register(id)}
+        />
+      </div>
       {errors[id] && <p>{errors[id]?.message as string}</p>}
     </div>
   );

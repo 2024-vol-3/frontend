@@ -30,7 +30,7 @@ export function IssueForm() {
     <FormProvider {...methods}>
       <form onSubmit={onSubmit}>
         <SelectField id={"category"} label={"カテゴリー"} option={optionData} />
-        <InputField id={"issue"} label={"問題"} />
+        <InputField id={"issues"} label={"問題"} />
         <TextAreaField id={"answer"} label={"解説"} />
         <button type="submit">送信</button>
       </form>

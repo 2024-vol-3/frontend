@@ -1,4 +1,5 @@
 "use client";
+import { Input } from "@yamada-ui/react";
 import { useFormContext } from "react-hook-form";
 
 type Props = {
@@ -16,7 +17,9 @@ export function InputField(props: Props) {
   return (
     <div>
       <label htmlFor={id}>{label}</label>
-      <input id={id} {...register(id)} />
+      <div>
+        <Input w="1000px" placeholder="問題を入力" id={id} {...register(id)} />
+      </div>
       {errors[id] && <p>{errors[id]?.message as string}</p>}
     </div>
   );
