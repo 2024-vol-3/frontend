@@ -1,7 +1,7 @@
 "use client";
 import { useForm, FormProvider } from "react-hook-form";
 import { z } from "zod";
-import { InputField } from "./InputField";
+import { InputField } from "../../../../../../_components/InputField";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export const loginSchema = z.object({
@@ -23,9 +23,9 @@ export function IssueForm() {
   return (
     <FormProvider {...methods}>
       <form onSubmit={onSubmit}>
-        <InputField name={"username"} label={"ユーザー名"} />
-        <InputField name={"password"} label={"パスワード"} />
-        <button type='submit'>送信</button>
+        <InputField id={"issue"} label={"問題"} />
+        <InputField id={"answer"} label={"解説"} />
+        <button type="submit">送信</button>
       </form>
     </FormProvider>
   );

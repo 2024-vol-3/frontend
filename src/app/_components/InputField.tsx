@@ -2,12 +2,12 @@
 import { useFormContext } from "react-hook-form";
 
 type Props = {
-  name: string;
+  id: string;
   label: string;
 };
 
 export function InputField(props: Props) {
-  const { name, label } = props;
+  const { id, label } = props;
   const {
     register,
     formState: { errors },
@@ -15,9 +15,9 @@ export function InputField(props: Props) {
 
   return (
     <div>
-      <label htmlFor={name}>{label}</label>
-      <input id={name} {...register(name)} />
-      {errors.username && <p>{errors.username.message as string} </p>}
+      <label htmlFor={id}>{label}</label>
+      <input id={id} {...register(id)} />
+      {errors.id && <p>{errors.id.message as string} </p>}
     </div>
   );
 }
