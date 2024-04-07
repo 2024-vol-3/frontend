@@ -1,5 +1,4 @@
 "use client";
-import InputForm from "@/app/_components/InputForm";
 import {
   SelectItem,
   VStack,
@@ -9,7 +8,12 @@ import {
   Button,
   Textarea,
 } from "@yamada-ui/react";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import {
+  useForm,
+  SubmitHandler,
+  Controller,
+  FieldErrors,
+} from "react-hook-form";
 import type { IssueFormType } from "../types/issueFormType";
 
 export const IssueForm = () => {
@@ -61,7 +65,25 @@ export const IssueForm = () => {
         />
       </FormControl>
 
-      <InputForm name="name" />
+      <FormControl
+        isInvalid={!!errors.name}
+        label="問題"
+        errorMessage={
+          errors.name?.message as FieldErrors<IssueFormType> as string
+        }
+      >
+        <Input
+          placeholder="問題を入力してください"
+          // register: フィールドを登録するための関数
+          {...register("name", {
+            required: {
+              // valueは入力が必要かどうかを示す真偽値です。
+              value: true,
+              message: "This is required.",
+            },
+          })}
+        />
+      </FormControl>
 
       <FormControl
         isInvalid={!!errors.name}
@@ -69,6 +91,7 @@ export const IssueForm = () => {
         errorMessage={errors.name?.message}
       >
         <Textarea
+          h="300px"
           placeholder="答えを入力してください"
           // register: フィールドを登録するための関数
           {...register("answer", {
@@ -82,7 +105,7 @@ export const IssueForm = () => {
       </FormControl>
 
       <Button type="submit" alignSelf="flex-end">
-        Submit
+        作成
       </Button>
     </VStack>
   );
