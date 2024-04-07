@@ -43,7 +43,7 @@ const page = () => {
       <PageTitle title='保存済みのグループカード一覧 (NaN件)' />
       <Box display='flex' flexWrap='wrap' gap='20px' pl='20px'>
         {data.map((d) => (
-          <GroupCard key={d.id} />
+          <GroupCard key={d.id} name={d.name} description={d.description} />
         ))}
       </Box>
 
