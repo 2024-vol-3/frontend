@@ -1,4 +1,5 @@
 "use client";
+import InputForm from "@/app/_components/InputForm";
 import {
   SelectItem,
   VStack,
@@ -6,8 +7,11 @@ import {
   Select,
   Input,
   Button,
+  Textarea,
 } from "@yamada-ui/react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
+import type { IssueFormType } from "../types/issueFormType";
+
 export const IssueForm = () => {
   const items: SelectItem[] = [
     {
@@ -20,25 +24,22 @@ export const IssueForm = () => {
     },
   ];
 
-  type Data = {
-    select: string;
-    name: string;
-  };
   const {
     register,
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<Data>();
+  } = useForm<IssueFormType>();
 
-  const onSubmit: SubmitHandler<Data> = (data) => console.log("submit:", data);
+  const onSubmit: SubmitHandler<IssueFormType> = (data) =>
+    console.log("submit:", data);
 
   // console.log("watch:", watch());
 
   return (
     // Formタグとして認識
     // ボタンが押されたら発火
-    <VStack as='form' onSubmit={handleSubmit(onSubmit)}>
+    <VStack as="form" onSubmit={handleSubmit(onSubmit)}>
       {/* 値を入力するfield */}
       <FormControl
         //isInvalid はエラーがある場合は true、エラーがない場合は false を返します。
@@ -51,24 +52,26 @@ export const IssueForm = () => {
         {/* rules: バリデーションルール */}
         {/* render: フィールドのレンダリング関数 */}
         <Controller
-          name='select'
+          name="select"
           control={control}
           rules={{ required: { value: true, message: "This is required." } }}
           render={({ field }) => (
-            <Select placeholder='カテゴリーを選択' {...field} items={items} />
+            <Select placeholder="カテゴリーを選択" {...field} items={items} />
           )}
         />
       </FormControl>
 
+      <InputForm name="name" />
+
       <FormControl
         isInvalid={!!errors.name}
-        label='問題'
+        label="答え"
         errorMessage={errors.name?.message}
       >
-        <Input
-          placeholder='問題を入力してください'
+        <Textarea
+          placeholder="答えを入力してください"
           // register: フィールドを登録するための関数
-          {...register("name", {
+          {...register("answer", {
             required: {
               // valueは入力が必要かどうかを示す真偽値です。
               value: true,
@@ -78,7 +81,7 @@ export const IssueForm = () => {
         />
       </FormControl>
 
-      <Button type='submit' alignSelf='flex-end'>
+      <Button type="submit" alignSelf="flex-end">
         Submit
       </Button>
     </VStack>
