@@ -1,19 +1,12 @@
 "use client";
 import { useForm, FormProvider } from "react-hook-form";
-import { z } from "zod";
 import { InputField } from "../../../../../../_components/InputField";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-export const loginSchema = z.object({
-  username: z.string().min(1, { message: "ユーザー名は必須です" }),
-  password: z
-    .string()
-    .min(8, { message: "パスワードは8文字以上である必要があります" }),
-});
+import { IssueSchema } from "./IssueSchema";
 
 export function IssueForm() {
   const methods = useForm({
-    resolver: zodResolver(loginSchema),
+    resolver: zodResolver(IssueSchema),
   });
 
   const onSubmit = methods.handleSubmit((data) => {
