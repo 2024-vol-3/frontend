@@ -66,7 +66,7 @@ export const IssueForm = () => {
         errorMessage={errors.name?.message}
       >
         <Input
-          placeholder='孫悟空'
+          placeholder='問題を入力してください'
           // register: フィールドを登録するための関数
           {...register("name", {
             required: {
