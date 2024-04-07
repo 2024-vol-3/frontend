@@ -1,39 +1,86 @@
 "use client";
-import { useForm, FormProvider } from "react-hook-form";
-import { InputField } from "../../../../../../_components/InputField";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { IssueSchema } from "./IssueSchema";
-import { SelectField } from "@/app/_components/SelectField";
-import { TextAreaField } from "@/app/_components/TextAreaField";
+import {
+  SelectItem,
+  VStack,
+  FormControl,
+  Select,
+  Input,
+  Button,
+} from "@yamada-ui/react";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+export const IssueForm = () => {
+  const items: SelectItem[] = [
+    {
+      label: "Naruto",
+      value: "naruto",
+    },
+    {
+      label: "Sasuke",
+      value: "sasuke",
+    },
+  ];
 
-const optionData = [
-  {
-    key: "hoge",
-    value: "hoge",
-  },
-  {
-    key: "hogehoge",
-    value: "hogehoge",
-  },
-];
+  type Data = {
+    select: string;
+    name: string;
+  };
+  const {
+    register,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Data>();
 
-export function IssueForm() {
-  const methods = useForm({
-    resolver: zodResolver(IssueSchema),
-  });
+  const onSubmit: SubmitHandler<Data> = (data) => console.log("submit:", data);
 
-  const onSubmit = methods.handleSubmit((data) => {
-    console.log(data);
-  });
+  // console.log("watch:", watch());
 
   return (
-    <FormProvider {...methods}>
-      <form onSubmit={onSubmit}>
-        <SelectField id={"category"} label={"カテゴリー"} option={optionData} />
-        <InputField id={"issues"} label={"問題"} />
-        <TextAreaField id={"answer"} label={"解説"} />
-        <button type="submit">送信</button>
-      </form>
-    </FormProvider>
+    // Formタグとして認識
+    // ボタンが押されたら発火
+    <VStack as='form' onSubmit={handleSubmit(onSubmit)}>
+      {/* 値を入力するfield */}
+      <FormControl
+        //isInvalid はエラーがある場合は true、エラーがない場合は false を返します。
+        //trueの場合、エラーメッセージが表示されます。
+        isInvalid={!!errors.select}
+        errorMessage={errors.select?.message}
+      >
+        {/* name: フィールドの名前 */}
+        {/* control: React Hook Formのコントロールオブジェクト */}
+        {/* rules: バリデーションルール */}
+        {/* render: フィールドのレンダリング関数 */}
+        <Controller
+          name='select'
+          control={control}
+          rules={{ required: { value: true, message: "This is required." } }}
+          render={({ field }) => (
+            <Select placeholder='カテゴリーを選択' {...field} items={items} />
+          )}
+        />
+      </FormControl>
+
+      <FormControl
+        isInvalid={!!errors.name}
+        label='問題'
+        errorMessage={errors.name?.message}
+      >
+        <Input
+          placeholder='孫悟空'
+          // register: フィールドを登録するための関数
+          {...register("name", {
+            required: {
+              // valueは入力が必要かどうかを示す真偽値です。
+              value: true,
+              message: "This is required.",
+            },
+          })}
+        />
+      </FormControl>
+
+      <Button type='submit' alignSelf='flex-end'>
+        Submit
+      </Button>
+    </VStack>
   );
-}
+};
