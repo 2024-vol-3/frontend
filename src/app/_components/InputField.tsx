@@ -17,7 +17,7 @@ export function InputField(props: Props) {
     <div>
       <label htmlFor={id}>{label}</label>
       <input id={id} {...register(id)} />
-      {errors.id && <p>{errors.id.message as string} </p>}
+      {errors[id] && <p>{errors[id]?.message as string}</p>}
     </div>
   );
 }
