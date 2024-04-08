@@ -7,6 +7,7 @@ import {
   Input,
   Button,
   Textarea,
+  Flex,
 } from "@yamada-ui/react";
 import {
   useForm,
@@ -50,6 +51,7 @@ export const IssueForm = () => {
         //trueの場合、エラーメッセージが表示されます。
         isInvalid={!!errors.select}
         errorMessage={errors.select?.message}
+        label="カテゴリー"
       >
         {/* name: フィールドの名前 */}
         {/* control: React Hook Formのコントロールオブジェクト */}
@@ -91,7 +93,7 @@ export const IssueForm = () => {
         errorMessage={errors.name?.message}
       >
         <Textarea
-          h="300px"
+          h="250px"
           placeholder="答えを入力してください"
           // register: フィールドを登録するための関数
           {...register("answer", {
@@ -104,9 +106,15 @@ export const IssueForm = () => {
         />
       </FormControl>
 
-      <Button type="submit" alignSelf="flex-end">
-        作成
-      </Button>
+      <Flex justify="space-between" marginTop="20px">
+        <Button w="200px" type="submit">
+          戻る
+        </Button>
+
+        <Button w="200px" type="submit">
+          作成
+        </Button>
+      </Flex>
     </VStack>
   );
 };
