@@ -7,7 +7,7 @@ const page = () => {
   return (
     <>
       <Center>
-        <Box w="1000px" m="15px">
+        <Box w="1000px" m="20px">
           <PageTitle title="問題作成" />
           <IssueForm />
         </Box>

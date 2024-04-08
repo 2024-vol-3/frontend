@@ -6,6 +6,7 @@ import {
   colorModeManager,
   ColorModeScript,
 } from "@yamada-ui/react";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja">
-      <body className={inter.className}>
-        <ColorModeScript type="cookie" nonce="testing" />
-        <UIProvider colorModeManager={{ ...colorModeManager }.cookieStorage}>
-          {children}
-        </UIProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="ja">
+        <body className={inter.className}>
+          <ColorModeScript type="cookie" nonce="testing" />
+          <UIProvider colorModeManager={{ ...colorModeManager }.cookieStorage}>
+            {children}
+          </UIProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
