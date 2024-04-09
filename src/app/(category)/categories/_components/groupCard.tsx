@@ -6,6 +6,7 @@ import {
   CardBody,
   CardHeader,
   Indicator,
+  Link,
   Text,
   useBreakpointValue,
 } from "@yamada-ui/react";
@@ -13,6 +14,7 @@ import {
 type GroupCardProps = {
   name: string;
   description: string;
+  d: number;
 };
 export default function GroupCard(props: GroupCardProps) {
   const w = useBreakpointValue({
@@ -39,9 +41,13 @@ export default function GroupCard(props: GroupCardProps) {
             justifyContent='space-around'
             alignItems='center'
           >
-            <Button variant='outline'>編集</Button>
+            <Link href={`/categories/${props.d}/issues/1/edit`}>
+              <Button variant='outline'>編集</Button>
+            </Link>
             <Indicator showZero={false} withBorder label={90} variant='solid'>
-              <Button variant='solid'>解く</Button>
+              <Link href={`/categories/${props.d}/solve`}>
+                <Button variant='solid'>解く</Button>
+              </Link>
             </Indicator>
           </Box>
         </CardBody>
