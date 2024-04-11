@@ -6,7 +6,9 @@ export default function Home() {
       <Box h='5vh' pl='5vw' bg='#fff'>
       </Box>
       <Box pl='5vw' pr='5vw' bg='#fff'>
-        <Box h='60vh' bg='#fff'>
+        <Box h='30vh' bg='#fff'>
+        </Box>
+        <Box h='30vh' bg='#fff'>
           <Center>
             <Text as='b' fontSize='80px' pt='5vh' pb='5vh' isTruncated>
               目に見える忘却曲線。<br/>
