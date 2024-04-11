@@ -45,7 +45,7 @@ export default function GroupCard(props: GroupCardProps) {
               <Button variant='outline'>編集</Button>
             </Link>
             <Indicator showZero={false} withBorder label={90} variant='solid'>
-              <Link href={`/categories/${props.d}/solve`}>
+              <Link href={`/categories/${props.d}/solve/1`}>
                 <Button variant='solid'>解く</Button>
               </Link>
             </Indicator>
