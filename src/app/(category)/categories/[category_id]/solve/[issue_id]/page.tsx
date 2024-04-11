@@ -8,7 +8,7 @@ return (
     <>
     <Center>
         <Box w="1000px" m="20px">
-        <PageTitle title="問題を解く" />
+        <PageTitle title="カテゴリー名 (NaN / NaN 問目)" />
         <SolveForm />
         </Box>
     </Center>
