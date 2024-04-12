@@ -1,34 +1,9 @@
-"use client";
-import useSWR from "swr";
-import { GETRequestFetcher } from "../api/fetcher/SWRfetcher";
-import type {
+import {
   CreateUserRequest,
-  fetchUserResponse,
   UpdateUserRequest,
-} from "./interface/userInterface";
+} from "@/api/interface/userInterface";
 
-export const useFetchUserAll = () => {
-  const { data, error, isLoading } = useSWR("/users", GETRequestFetcher);
-  return {
-    user: data,
-    isLoading: isLoading,
-    isError: error,
-  };
-};
-
-export const useFetchUserById = (user_id: number) => {
-  const { data, error, isLoading } = useSWR(
-    `/users/${user_id}`,
-    GETRequestFetcher
-  );
-  return {
-    user: data,
-    isLoading: isLoading,
-    isError: error,
-  };
-};
-
-export const useCreateUser = async (user: CreateUserRequest) => {
+export const createUserRepository = async (user: CreateUserRequest) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/users`, {
       method: "POST",
@@ -42,7 +17,7 @@ export const useCreateUser = async (user: CreateUserRequest) => {
   }
 };
 
-export const useUpdateUser = async (
+export const updateUserRepository = async (
   user_id: number,
   user: UpdateUserRequest
 ) => {
@@ -62,7 +37,7 @@ export const useUpdateUser = async (
   }
 };
 
-export const useDeleteUser = async (user_id: number) => {
+export const deleteUserRepository = async (user_id: number) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/users/${user_id}`,
