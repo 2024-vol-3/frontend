@@ -14,24 +14,12 @@ export function GETRequestFetcher(url: string) {
 }
 
 export function POSTRequestFetcher(url: string, body: unknown) {
-  return fetch(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  })
-    .then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(res);
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-      return error;
-    });
+  const fetcher = (...args: any[]) =>
+    fetch(...args, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ key: "value" }),
+    }).then((res) => res.json());
 }
 
 export function PUTRequestFetcher(url: string, body: unknown) {
