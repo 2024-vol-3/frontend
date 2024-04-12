@@ -1,9 +1,6 @@
 "use client";
 import useSWR from "swr";
-import {
-  GETRequestFetcher,
-  POSTRequestFetcher,
-} from "../api/fetcher/SWRfetcher";
+import { GETRequestFetcher } from "../api/fetcher/SWRfetcher";
 import type {
   CreateUserRequest,
   fetchUserResponse,
@@ -31,17 +28,49 @@ export const useFetchUserById = (user_id: number) => {
   };
 };
 
-export const useFetchUserByGroupId = (
-  group_id: number,
-  body: CreateUserRequest
+export const useCreateUser = async (user: CreateUserRequest) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const useUpdateUser = async (
+  user_id: number,
+  user: UpdateUserRequest
 ) => {
-  const { data, error, isLoading } = useSWR(
-    `/users/group/${group_id}`,
-    POSTRequestFetcher
-  );
-  return {
-    user: data,
-    isLoading: isLoading,
-    isError: error,
-  };
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/users/${user_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const useDeleteUser = async (user_id: number) => {
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/users/${user_id}`,
+      {
+        method: "DELETE",
+      }
+    );
+  } catch (error) {
+    console.error(error);
+  }
 };
