@@ -26,11 +26,10 @@ export const useCreateUserService = async (
   new_user: CreateUserRequest
 ) => {
   const user = await useFetchUserByIdRepository(user_id!);
-  if (!user_id) {
-    return user;
-  } else {
-    createUserRepository(new_user);
+  if (user.user) {
+    return createUserRepository(new_user);
   }
+  return;
 };
 
 export const useUpdateUserService = async (
