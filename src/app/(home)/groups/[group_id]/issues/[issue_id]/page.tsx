@@ -6,17 +6,16 @@ import SolveForm from "./_components/SolveForm";
 import { useParams } from "next/navigation";
 import { SolveContextProvider } from "./provider/SolveProvider";
 import { testIssue, testGroup } from "@/mock/data/mock_data";
-import { fetchIssueResponse } from "@/api/interface/issueInterface";
 
 // params:ブラウザのパスがそのままとれる
 
 const Page = () => {
   const params = useParams();
-  const { category_id, issue_id } = params;
-  const group_id = Number(category_id) - 1;
-  const group = testGroup[group_id];
-  const data_id = Number(issue_id) - 1;
-  const issue = testIssue[data_id];
+  const { group_id, issue_id } = params;
+  const dummy_group_id = Number(group_id) - 1;
+  const group = testGroup[dummy_group_id];
+  const dummy_issue_id = Number(issue_id) - 1;
+  const issue = testIssue[dummy_issue_id];
   return (
     <>
       <SolveContextProvider>

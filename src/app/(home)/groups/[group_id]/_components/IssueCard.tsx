@@ -42,7 +42,7 @@ export default function IssueCard(props: IssueCardProps) {
             </Text>
           </CardBody>
           <CardFooter justifyContent='flex-end'>
-            <Link href={`/categories/1/issues/1/edit`}>
+            <Link href={`/groups/1/issues/1/edit`}>
               <Button bg='#fff'>編集</Button>
             </Link>
           </CardFooter>

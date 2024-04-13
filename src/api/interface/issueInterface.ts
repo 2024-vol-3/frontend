@@ -4,4 +4,5 @@ export interface fetchIssueResponse {
   contents: string;
   day_fragment: boolean;
   group_id: number;
+  paper_num: number;
 }

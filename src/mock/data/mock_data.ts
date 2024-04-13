@@ -8,6 +8,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "BCP",
     day_fragment: true,
     group_id: 1,
+    paper_num: 2,
   },
   {
     issue_id: 2,
@@ -16,6 +17,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "デジタルツイン",
     day_fragment: true,
     group_id: 1,
+    paper_num: 1,
   },
   {
     issue_id: 3,
@@ -24,6 +26,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "BCP",
     day_fragment: true,
     group_id: 1,
+    paper_num: 4,
   },
   {
     issue_id: 4,
@@ -32,6 +35,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "BCP",
     day_fragment: true,
     group_id: 1,
+    paper_num: 3,
   },
   {
     issue_id: 5,
@@ -40,6 +44,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "BCP",
     day_fragment: true,
     group_id: 1,
+    paper_num: 3,
   },
 ];
 
@@ -48,30 +53,30 @@ export const testGroup = [
     group_id: 1,
     group_name: "基本情報対策",
     group_description: "基本情報科目A過去問から",
-    paper_num: 2,
+    issue_count: 2,
   },
   {
     group_id: 2,
     group_name: "Python",
     group_description: "Pythonの基本的な構文",
-    paper_num: 1,
+    issue_count: 3,
   },
   {
     group_id: 3,
     group_name: "ネットワーク",
     group_description: "ネットワークのテスト対策",
-    paper_num: 4,
+    issue_count: 4,
   },
   {
     group_id: 4,
     group_name: "応用情報対策",
     group_description: "応用情報午前から",
-    paper_num: 3,
+    issue_count: 2,
   },
   {
     group_id: 5,
     group_name: "SQL",
     group_description: "SQLの小テスト対策",
-    paper_num: 3,
+    issue_count: 4,
   },
 ];

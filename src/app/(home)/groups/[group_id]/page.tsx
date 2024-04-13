@@ -12,23 +12,25 @@ const page = () => {
   return (
     <>
       <Box m='auto' w='90%'>
-        <Text fontSize='lg' fontWeight='bold' m='20px'>
-          {groupName.group_name}
-        </Text>
-        <FilterSelect />
+        <Box display='flex' mb='20px'>
+          <Text fontSize='lg' fontWeight='bold' m='20px'>
+            {groupName.group_name}
+          </Text>
+          <FilterSelect />
+        </Box>
         <Box display='flex' p='20px 0' flexWrap='wrap' gap='20px' pl='20px'>
           {testIssue.map((data: fetchIssueResponse) => (
             <IssueCard
               key={data.issue_id}
               name={data.title}
               description={data.contents}
-              paper_num={data.day_fragment ? 1 : 0}
+              paper_num={data.paper_num}
             />
           ))}
         </Box>
       </Box>
 
-      <Link href='/categories/create'>
+      <Link href='/groups/create'>
         <Avatar
           bg='sky.300'
           size='lg'

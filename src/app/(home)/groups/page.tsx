@@ -15,17 +15,17 @@ const page = () => {
         <Box display='flex' flexWrap='wrap' gap='20px' pl='20px' pb='20px'>
           {testGroup.map((data: fetchGroupResponse) => (
             <GroupCard
-              paper_num={data.paper_num}
               key={data.group_id}
               group_id={data.group_id}
               name={data.group_name}
               description={data.group_description}
+              issue_count={data.issue_count}
             />
           ))}
         </Box>
       </Box>
 
-      <Link href='/categories/create'>
+      <Link href='/groups/create'>
         <Avatar
           bg='sky.300'
           size='lg'

@@ -70,7 +70,7 @@ export default function Home() {
               alignItems='center'
               justifyContent='space-around'
             >
-              <Link href='/categories'>
+              <Link href='/groups'>
                 <Button
                   size='lg'
                   color='#fff'

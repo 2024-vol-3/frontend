@@ -13,10 +13,10 @@ const AnswerModal = () => {
   const { isOpen, setIsOpen } = useModal();
   const router = useRouter();
   const params = useParams();
-  const { category_id, issue_id } = params;
+  const { group_id, issue_id } = params;
 
   const handleClosse = (): void => {
-    router.push(`/categories/${category_id}/issues/${Number(issue_id) + 1}`);
+    router.push(`/groups/${group_id}/issues/${Number(issue_id) + 1}`);
     setIsOpen(false);
   };
 

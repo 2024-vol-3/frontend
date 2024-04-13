@@ -13,12 +13,13 @@ import {
   Flex,
   CardFooter,
 } from "@yamada-ui/react";
+import { TodayIssueCount } from "./TodayIssueCount";
 
 type GroupCardProps = {
   name: string;
   description: string;
   group_id: number;
-  paper_num: number;
+  issue_count: number;
 };
 export default function GroupCard(props: GroupCardProps) {
   const w = useBreakpointValue({
@@ -41,7 +42,7 @@ export default function GroupCard(props: GroupCardProps) {
               </Text>
             </CardHeader>
           </Box>
-          <StickyPaper paper_num={props.paper_num} />
+          <TodayIssueCount issue_count={props.issue_count} />
         </Flex>
         <Card zIndex='50' h='200px' gap='20px' bg='#fffccc'>
           <CardBody gap='20px'>
@@ -55,12 +56,12 @@ export default function GroupCard(props: GroupCardProps) {
             justifyContent='space-between'
             alignItems='center'
           >
-            <Link href={`/categories/${props.group_id}`}>
+            <Link href={`/groups/${props.group_id}`}>
               <Button bg='#fff' variant='solid'>
                 一覧
               </Button>
             </Link>
-            <Link href={`/categories/${props.group_id}/issues/1`}>
+            <Link href={`/groups/${props.group_id}/issues/1`}>
               <Button bg='#fff' variant='solid'>
                 解く
               </Button>

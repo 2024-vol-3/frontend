@@ -51,8 +51,8 @@ const SolveForm = (props: SolveFormProps) => {
           <Link
             href={
               issue.issue_id.toString() === "1"
-                ? "/categories"
-                : `/categories/${issue.group_id}/issues/${
+                ? "/groups"
+                : `/groups/${issue.group_id}/issues/${
                     Number(issue.issue_id) - 1
                   }`
             }
