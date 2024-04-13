@@ -9,13 +9,13 @@ export default function PageTitle(props: PageTitleProps) {
   return (
     <>
       <Box
-        w="full"
-        h="100px"
-        display="flex"
-        alignItems="center"
-        p="0 20px 30px 0"
+        w='full'
+        h='100px'
+        display='flex'
+        alignItems='center'
+        p='0 20px 30px 0'
       >
-        <Text fontSize="xl" as="b">
+        <Text fontSize='xl' as='b'>
           {props.title}
         </Text>
       </Box>

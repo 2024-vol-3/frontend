@@ -3,11 +3,12 @@ export interface fetchIssueResponse {
   issue_id: number;
   title: string;
   contents: string;
-  day_fragment: boolean;
+  paper_num: number;
 }
 
 export interface fetchGroupResponse {
   group_id: number;
   group_name: string;
   group_description: string;
+  issue_count: number;
 }
