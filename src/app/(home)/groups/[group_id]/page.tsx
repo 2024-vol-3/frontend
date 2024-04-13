@@ -17,11 +17,12 @@ const page = () => {
         </Text>
         <FilterSelect />
         <Box display='flex' p='20px 0' flexWrap='wrap' gap='20px' pl='20px'>
-          {testIssue.map((d: fetchIssueResponse) => (
+          {testIssue.map((data: fetchIssueResponse) => (
             <IssueCard
-              key={d.issue_id}
-              name={d.title}
-              description={d.contents}
+              key={data.issue_id}
+              name={data.title}
+              description={data.contents}
+              paper_num={data.day_fragment ? 1 : 0}
             />
           ))}
         </Box>

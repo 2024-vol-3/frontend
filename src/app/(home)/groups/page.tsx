@@ -1,4 +1,4 @@
-import GroupCard from "@/app/(category)/categories/_components/groupCard";
+import GroupCard from "@/app/(home)/groups/_components/groupCard";
 import { Avatar, Box, Center, Link, Text } from "@yamada-ui/react";
 import { Icon as FontAwesomeIcon } from "@yamada-ui/fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";

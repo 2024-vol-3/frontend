@@ -1,5 +1,5 @@
 "use client";
-import StickyPaper from "@/app/(category)/categories/_components/stickyPaper";
+import StickyPaper from "@/app/(home)/groups/[group_id]/issues/[issue_id]/_components/stickyPaper";
 import {
   Box,
   Button,

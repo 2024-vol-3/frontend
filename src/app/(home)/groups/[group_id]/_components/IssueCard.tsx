@@ -10,8 +10,10 @@ import {
   Text,
   useBreakpointValue,
 } from "@yamada-ui/react";
+import StickyPaper from "../issues/[issue_id]/_components/stickyPaper";
 
 type IssueCardProps = {
+  paper_num: number;
   name: string;
   description: string;
 };
@@ -31,6 +33,7 @@ export default function IssueCard(props: IssueCardProps) {
           <Text mt='-12px' isTruncated width='100%' as='b' textAlign='center'>
             {props.name}
           </Text>
+          <StickyPaper paper_num={props.paper_num} />
         </CardHeader>
         <Card zIndex='50' h='200px' gap='20px' bg='#fffccc'>
           <CardBody gap='20px'>

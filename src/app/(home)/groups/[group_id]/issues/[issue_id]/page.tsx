@@ -9,9 +9,7 @@ import { testIssue, testGroup } from "@/mock/data/mock_data";
 import { fetchIssueResponse } from "@/api/interface/issueInterface";
 
 // params:ブラウザのパスがそのままとれる
-type dummy = {
-  data: fetchIssueResponse;
-};
+
 const Page = () => {
   const params = useParams();
   const { category_id, issue_id } = params;
