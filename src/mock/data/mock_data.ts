@@ -8,7 +8,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "MIME",
     day_fragment: true,
     group_id: 1,
-    paper_num: 2,
+    paper_num: 4,
   },
   {
     issue_id: 2,
@@ -17,7 +17,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "デジタルツイン",
     day_fragment: true,
     group_id: 1,
-    paper_num: 1,
+    paper_num: 4,
   },
   {
     issue_id: 3,
@@ -33,7 +33,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "メッセージが改ざんされていないことを確認する",
     day_fragment: true,
     group_id: 1,
-    paper_num: 3,
+    paper_num: 4,
   },
   {
     issue_id: 5,
@@ -42,7 +42,7 @@ export const testIssue: fetchIssueResponse[] = [
     contents: "データウェアハウス",
     day_fragment: true,
     group_id: 1,
-    paper_num: 3,
+    paper_num: 4,
   },
 ];
 
