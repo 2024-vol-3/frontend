@@ -4,8 +4,8 @@ export const testIssue: fetchIssueResponse[] = [
   {
     issue_id: 1,
     title:
-      "事業の中断・阻害に対応し，事業を復旧し，再開し，あらかじめ定められたレベルに回復するように組織を導く手順を文書化したもの",
-    contents: "BCP",
+      "インターネットにおける電子メールの規約で、ヘッダーフィールドの拡張を行い、テキストだけでなく、音声、画像なども扱えるようにしたもの",
+    contents: "MIME",
     day_fragment: true,
     group_id: 1,
     paper_num: 2,
@@ -21,18 +21,16 @@ export const testIssue: fetchIssueResponse[] = [
   },
   {
     issue_id: 3,
-    title:
-      "事業の中断・阻害に対応し，事業を復旧し，再開し，あらかじめ定められたレベルに回復するように組織を導く手順を文書化したものは？",
-    contents: "BCP",
+    title: "知識ベースを利用して推論を行うもの",
+    contents: "エキスパートシステム",
     day_fragment: true,
     group_id: 1,
     paper_num: 4,
   },
   {
     issue_id: 4,
-    title:
-      "事業の中断・阻害に対応し，事業を復旧し，再開し，あらかじめ定められたレベルに回復するように組織を導く手順を文書化したものは？",
-    contents: "BCP",
+    title: "メッセージダイジェストの利用目的",
+    contents: "メッセージが改ざんされていないことを確認する",
     day_fragment: true,
     group_id: 1,
     paper_num: 3,
@@ -40,8 +38,8 @@ export const testIssue: fetchIssueResponse[] = [
   {
     issue_id: 5,
     title:
-      "事業の中断・阻害に対応し，事業を復旧し，再開し，あらかじめ定められたレベルに回復するように組織を導く手順を文書化したものは？",
-    contents: "BCP",
+      "企業の様々な活動を介して得られた大量のデータを目的別に整理･統合して蓄積しておき、意思決定支援などに利用するもの",
+    contents: "データウェアハウス",
     day_fragment: true,
     group_id: 1,
     paper_num: 3,

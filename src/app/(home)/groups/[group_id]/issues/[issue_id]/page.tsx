@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Box, Center } from "@yamada-ui/react";
+import { Box, Center, Text } from "@yamada-ui/react";
 import PageTitle from "@/app/_components/pageTitle";
 import SolveForm from "./_components/SolveForm";
 import { useParams } from "next/navigation";
@@ -16,13 +16,16 @@ const Page = () => {
   const group = testGroup[dummy_group_id];
   const dummy_issue_id = Number(issue_id) - 1;
   const issue = testIssue[dummy_issue_id];
+  const issue_length = testIssue.length;
   return (
     <>
       <SolveContextProvider>
         <Center>
-          <Box w='1000px' m='20px'>
-            <PageTitle title={`${group.group_name}`} />
-            {issue && <SolveForm issue={issue} />}
+          <Box w='calc(90% - 40px)'>
+            <Text h='50px' m='50px 0 50px 0' fontSize='36px' fontWeight='bold'>
+              {group.group_name}
+            </Text>
+            {issue && <SolveForm issue={issue} issue_length={issue_length} />}
           </Box>
         </Center>
       </SolveContextProvider>

@@ -32,19 +32,15 @@ export default function GroupCard(props: GroupCardProps) {
 
   return (
     <>
-      <Card w={w} h='240px' bg='#fffeee' border='solid 1px #ddd'>
-        <Flex>
-          {/* 付箋が減る場合、1枚当たり-40pxで調整 xBlackTea */}
-          <Box w='calc(100% - 155px)'>
-            <CardHeader>
-              <Text pt='12px' lineClamp={1} as='b'>
-                {props.name}
-              </Text>
-            </CardHeader>
-          </Box>
-          <TodayIssueCount issue_count={props.issue_count} />
-        </Flex>
-        <Card zIndex='50' h='200px' gap='20px' bg='#fffccc'>
+      <Card w={w} h='300px' bg='#fffeee' border='solid 1px #ddd'>
+        <CardHeader h='100px' display='flex' justifyContent='space-between'>
+          <Text mt='-12px' isTruncated as='b' fontSize='20px'>
+            {props.name}
+          </Text>
+          {/* <TodayIssueCount issue_count={props.issue_count} /> */}
+        </CardHeader>
+
+        <Card zIndex='50' h='200px' bg='#fffccc'>
           <CardBody gap='20px'>
             <Text lineClamp={2} pt='12px' color='#555'>
               {props.description}
@@ -57,14 +53,16 @@ export default function GroupCard(props: GroupCardProps) {
             alignItems='center'
           >
             <Link href={`/groups/${props.group_id}`}>
-              <Button bg='#fff' variant='solid'>
+              <Button p='30px' bg='#fff' fontSize='20px' variant='solid'>
                 一覧
               </Button>
             </Link>
             <Link href={`/groups/${props.group_id}/issues/1`}>
-              <Button bg='#fff' variant='solid'>
-                解く
-              </Button>
+              <Indicator p='4px 10px 4px 10px' label={props.issue_count} ping>
+                <Button p='30px' bg='#fff' fontSize='20px' variant='solid'>
+                  解く
+                </Button>
+              </Indicator>
             </Link>
             {/* </Indicator> */}
           </CardFooter>

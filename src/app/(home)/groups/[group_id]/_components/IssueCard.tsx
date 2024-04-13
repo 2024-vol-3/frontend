@@ -28,22 +28,25 @@ export default function IssueCard(props: IssueCardProps) {
 
   return (
     <>
-      <Card w={w} h='240px' bg='#fffeee' border='solid 1px #ddd'>
+      <Card w={w} h='300px' bg='#fffeee' border='solid 1px #ddd'>
         <CardHeader h='100px'>
-          <Text mt='-12px' isTruncated width='100%' as='b' textAlign='center'>
+          <Text mt='-12px' isTruncated width='100%' fontSize='20px' as='b'>
             {props.name}
           </Text>
           <StickyPaper paper_num={props.paper_num} />
         </CardHeader>
-        <Card zIndex='50' h='200px' gap='20px' bg='#fffccc'>
+
+        <Card zIndex='50' h='200px' bg='#fffccc'>
           <CardBody gap='20px'>
             <Text pt='12px' color='#555' textOverflow='ellipsis' lineClamp={4}>
-              解説：{props.description}
+              解答：{props.description}
             </Text>
           </CardBody>
           <CardFooter justifyContent='flex-end'>
             <Link href={`/groups/1/issues/1/edit`}>
-              <Button bg='#fff'>編集</Button>
+              <Button p='30px' bg='#fff' fontSize='20px' variant='solid'>
+                編集
+              </Button>
             </Link>
           </CardFooter>
         </Card>

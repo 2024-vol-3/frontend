@@ -1,5 +1,6 @@
+"use client";
 import GroupCard from "@/app/(home)/groups/_components/groupCard";
-import { Avatar, Box, Center, Link, Text } from "@yamada-ui/react";
+import { Avatar, Box, Button, Center, Link, Text } from "@yamada-ui/react";
 import { Icon as FontAwesomeIcon } from "@yamada-ui/fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
@@ -12,7 +13,11 @@ const Page = () => {
   return (
     <>
       <Box m='auto' w='90%'>
-        <PageTitle title='グループカード一覧' />
+        <Box>
+          <Text h='50px' m='50px 0 50px 20px' fontSize='36px' fontWeight='bold'>
+            グループカード一覧
+          </Text>
+        </Box>
         <Box display='flex' flexWrap='wrap' gap='20px' pl='20px' pb='20px'>
           {testGroup.map((data: fetchGroupResponse) => (
             <GroupCard
@@ -26,10 +31,12 @@ const Page = () => {
         </Box>
       </Box>
 
-      <Link href={`/groups/${group_id}/issues/create`}>
-        <Avatar
-          bg='sky.300'
-          size='lg'
+      <Link href='/groups/create'>
+        <Button
+          bg='#222'
+          color='#fff'
+          fontSize='20px'
+          p='30px'
           style={{
             position: "fixed",
             bottom: "3vh",
@@ -37,11 +44,12 @@ const Page = () => {
             zIndex: 100,
             cursor: "pointer",
           }}
-          icon={<FontAwesomeIcon icon={faPlus} />}
-        />
+        >
+          グループ作成
+        </Button>
       </Link>
     </>
   );
 };
 
-export default page;
+export default Page;

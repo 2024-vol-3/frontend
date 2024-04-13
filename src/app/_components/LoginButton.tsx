@@ -1,11 +1,11 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Box } from "@yamada-ui/react";
 
 export default function LoginButton() {
   return (
     <>
       <SignedIn>
-        {/* Mount the UserButton component */}
-        <UserButton afterSignOutUrl="/" />
+        <UserButton afterSignOutUrl='/' />
       </SignedIn>
       <SignedOut>
         {/* Signed out users get sign in button */}

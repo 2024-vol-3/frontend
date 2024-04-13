@@ -6,12 +6,10 @@ import {
   Card,
   CardBody,
   CardHeader,
+  CardFooter,
   Flex,
-  FormControl,
-  Heading,
   Text,
-  Textarea,
-  VStack,
+  Box,
 } from "@yamada-ui/react";
 import React from "react";
 import Link from "next/link";
@@ -21,9 +19,10 @@ import { fetchIssueResponse } from "@/api/interface/issueInterface";
 
 type SolveFormProps = {
   issue: fetchIssueResponse;
+  issue_length: number;
 };
 const SolveForm = (props: SolveFormProps) => {
-  const { issue } = props;
+  const { issue, issue_length } = props;
   const { setIsOpen } = useModal();
 
   const handleNext = (): void => {
@@ -32,42 +31,61 @@ const SolveForm = (props: SolveFormProps) => {
 
   return (
     <>
-      <VStack>
-        <Card>
-          <CardHeader>
-            <Heading size='md'>{issue.issue_id}問目</Heading>
+      <Box m='auto' w='100%'>
+        <Card border='solid 1px #ddd'>
+          <CardHeader p='40px 0 40px 20px' bg='#fffeee'>
+            <Text fontSize='20px' as='b'>
+              {issue.issue_id}問目
+            </Text>
           </CardHeader>
 
-          <CardBody>
-            <Text>{issue.title}</Text>
+          <CardBody p='40px 0 40px 20px' bg='#fffccc'>
+            <Text lineClamp={2}>{issue.title}</Text>
           </CardBody>
 
-          <Accordion variant='card' isToggle>
-            <AccordionItem label='解説を表示'>{issue.contents}</AccordionItem>
-          </Accordion>
-        </Card>
+          <CardFooter bg='#fffccc'>
+            <Accordion variant='card' isToggle>
+              <AccordionItem bg='#fefefe' label='解答を表示'>
+                {issue.contents}
+              </AccordionItem>
+            </Accordion>
+          </CardFooter>
+          <Flex bg='#fffccc' justify='space-between' p='15px'>
+            {issue.issue_id === 1 ? (
+              <Link href='/groups'>
+                <Button bg='#fefefe' fontSize='20px' p='30px'>
+                  グループ一覧へ
+                </Button>
+              </Link>
+            ) : (
+              <Link
+                href={`/groups/${issue.group_id}/issues/${issue.issue_id - 1}`}
+              >
+                <Button bg='#fefefe' fontSize='20px' p='30px'>
+                  前の問題
+                </Button>
+              </Link>
+            )}
 
-        <Flex justify='space-around' marginTop='20px'>
-          <Link
-            href={
-              issue.issue_id.toString() === "1"
-                ? "/groups"
-                : `/groups/${issue.group_id}/issues/${
-                    Number(issue.issue_id) - 1
-                  }`
-            }
-          >
-            <Button w='200px'>
-              {issue.issue_id.toString() === "1"
-                ? "カテゴリー一覧"
-                : "前の問題"}
-            </Button>
-          </Link>
-          <Button w='200px' onClick={handleNext}>
-            次の問題
-          </Button>
-        </Flex>
-      </VStack>
+            {issue.issue_id === issue_length ? (
+              <Link href={`/groups/${issue.group_id}/`}>
+                <Button bg='#fefefe' fontSize='20px' p='30px'>
+                  問題一覧へ
+                </Button>
+              </Link>
+            ) : (
+              <Button
+                bg='#fefefe'
+                fontSize='20px'
+                p='30px'
+                onClick={handleNext}
+              >
+                次の問題
+              </Button>
+            )}
+          </Flex>
+        </Card>
+      </Box>
 
       <AnswerModal />
     </>

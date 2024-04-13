@@ -22,9 +22,9 @@ export default function Header() {
           />
         </Link>
         <Box display='flex' alignItems='center' gap='10px' h='100%'>
-          <Link h='65%' href='/groups/create'>
+          <Link h='65%' href='/groups/'>
             <Button h='100%' bg='sky.300'>
-              作成
+              グループ一覧へ
             </Button>
           </Link>
           {/* <Button h="65%">ログイン</Button> */}

@@ -5,6 +5,7 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
+  Text,
 } from "@yamada-ui/react";
 import { useModal } from "../hooks/useModal";
 import { useParams, useRouter } from "next/navigation";
@@ -23,10 +24,13 @@ const AnswerModal = () => {
   return (
     <>
       <Modal isOpen={isOpen} onClose={handleClosse}>
-        <ModalHeader
-          p='40px 30px 0 30px'
-          textAlign='center'
-        >{`覚えられましたか？\nあと1日後にもう一度挑戦！`}</ModalHeader>
+        <ModalHeader m='auto' p='40px 30px 0 30px' textAlign='center'>
+          <Text>
+            覚えられましたか?
+            <br />
+            あと1日後にもう一度挑戦!
+          </Text>
+        </ModalHeader>
 
         <ModalBody>
           <Center
