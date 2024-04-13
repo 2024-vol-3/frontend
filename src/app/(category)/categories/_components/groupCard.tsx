@@ -58,11 +58,13 @@ export default function GroupCard(props: GroupCardProps) {
                   編集
                 </Button>
               </Link>
+
               <Indicator showZero={false} withBorder label={90} variant="solid">
                 <Link href={`/categories/${props.d}/issues/${props.d}`}>
                   <Button bg="#fff" variant="solid">
                     解く
                   </Button>
+                  
                 </Link>
               </Indicator>
             </Box>
