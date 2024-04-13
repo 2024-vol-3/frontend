@@ -21,20 +21,3 @@ export const updateTagRepository = async (
     console.error(error);
   }
 };
-
-export const deleteTagRepository = async (
-  tag_id: number,
-  group_id: number,
-  issue_id: number
-) => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/groups/${group_id}/issues/${issue_id}/tags/${tag_id}`,
-      {
-        method: "DELETE",
-      }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
