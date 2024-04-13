@@ -9,7 +9,7 @@ export const useFetchDayByIdRepository = (
   day_id: number
 ) => {
   const { data, error, isLoading } = useSWR(
-    `/groups/${group_id}/issue/${issue_id}/tags/${tag_id}/days/${day_id}`,
+    `/groups/${group_id}/issues/${issue_id}/tags/${tag_id}/days/${day_id}`,
     GETRequestFetcher
   );
   return {

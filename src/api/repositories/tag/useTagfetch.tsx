@@ -7,7 +7,7 @@ export const useFetchTagAllRepository = (
   issue_id: number
 ) => {
   const { data, error, isLoading } = useSWR(
-    `/groups/${group_id}/issue/${issue_id}/tags`,
+    `/groups/${group_id}/issues/${issue_id}/tags`,
     GETRequestFetcher
   );
   return {
@@ -23,7 +23,7 @@ export const useFetchTagByIdRepository = (
   tag_id: number
 ) => {
   const { data, error, isLoading } = useSWR(
-    `/groups/${group_id}/issue/${issue_id}/tags/${tag_id}`,
+    `/groups/${group_id}/issues/${issue_id}/tags/${tag_id}`,
     GETRequestFetcher
   );
   return {
