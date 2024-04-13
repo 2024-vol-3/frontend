@@ -1,5 +1,4 @@
 "use client";
-import StickyPaper from "@/app/(home)/groups/[group_id]/issues/[issue_id]/_components/stickyPaper";
 import {
   Box,
   Button,
@@ -37,7 +36,6 @@ export default function GroupCard(props: GroupCardProps) {
           <Text mt='-12px' isTruncated as='b' fontSize='20px'>
             {props.name}
           </Text>
-          {/* <TodayIssueCount issue_count={props.issue_count} /> */}
         </CardHeader>
 
         <Card zIndex='50' h='200px' bg='#fffccc'>

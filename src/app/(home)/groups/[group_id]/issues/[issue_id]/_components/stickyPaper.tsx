@@ -8,9 +8,14 @@ type StickyPaperProps = {
 const StickyPaper = (props: StickyPaperProps) => {
   const { paper_num } = props;
   const [count, setCount] = useState(paper_num);
+  const [clickedIndex, setClickedIndex] = useState(-1);
 
-  const handleClick = (): void => {
+  const handleCount = (): void => {
     setCount((prev) => prev - 1);
+  };
+
+  const handleClick = (index: number): void => {
+    setClickedIndex(index);
   };
 
   const boxes = [
@@ -39,7 +44,14 @@ const StickyPaper = (props: StickyPaperProps) => {
                 fontSize='20px'
                 textAlign='center'
                 shadow='rgba(0, 0, 0, 0.1) 0px 0px 0px, rgba(0, 0, 0, 0.2) 0px 5px 10px'
-                onClick={handleClick}
+                style={{
+                  transition: "transform 0.5s ease, opacity 0.5s ease",
+
+                  transform:
+                    clickedIndex === index ? "translateY(-50px)" : "none",
+                  opacity: clickedIndex === index ? 0 : 1,
+                }}
+                onClick={() => handleClick(index)}
               >
                 <p>{box.value}</p>
               </Box>
