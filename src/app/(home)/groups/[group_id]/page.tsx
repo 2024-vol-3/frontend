@@ -12,7 +12,7 @@ const page = () => {
   return (
     <>
       <Box m='auto' w='90%'>
-        <Box display='flex' mb='20px'>
+        <Box display='flex' alignItems='center' mb='20px'>
           <Text fontSize='lg' fontWeight='bold' m='20px'>
             {groupName.group_name}
           </Text>

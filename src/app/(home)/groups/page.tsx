@@ -6,8 +6,9 @@ import React from "react";
 import PageTitle from "../../_components/pageTitle";
 import { testGroup } from "@/mock/data/mock_data";
 import { fetchGroupResponse } from "@/mock/interface/testInterface";
-
-const page = () => {
+import { useParams } from "next/navigation";
+const Page = () => {
+  const { group_id } = useParams();
   return (
     <>
       <Box m='auto' w='90%'>
@@ -25,7 +26,7 @@ const page = () => {
         </Box>
       </Box>
 
-      <Link href='/groups/create'>
+      <Link href={`/groups/${group_id}/issues/create`}>
         <Avatar
           bg='sky.300'
           size='lg'

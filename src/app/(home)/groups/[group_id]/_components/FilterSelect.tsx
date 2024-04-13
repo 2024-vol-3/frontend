@@ -22,7 +22,7 @@ export default function FilterSelect() {
 
   return (
     <>
-      <Select w='320px' p='20px' variant='flushed' defaultValue='全ての問題'>
+      <Select w='320px' p='20px' defaultValue='全ての問題' zIndex='999'>
         {options.map((data) => (
           <Option key={data.value} value={data.value}>
             {data.label}
