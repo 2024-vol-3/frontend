@@ -11,12 +11,12 @@ const page = () => {
   const groupName = testGroup[0];
   return (
     <>
-      <Box m="auto" w="90%">
-        <Text fontSize="lg" fontWeight="bold" m="20px">
+      <Box m='auto' w='90%'>
+        <Text fontSize='lg' fontWeight='bold' m='20px'>
           {groupName.group_name}
         </Text>
         <FilterSelect />
-        <Box display="flex" p="20px 0" flexWrap="wrap" gap="20px" pl="20px">
+        <Box display='flex' p='20px 0' flexWrap='wrap' gap='20px' pl='20px'>
           {testIssue.map((d: fetchIssueResponse) => (
             <IssueCard
               key={d.issue_id}
@@ -27,10 +27,10 @@ const page = () => {
         </Box>
       </Box>
 
-      <Link href="/categories/create">
+      <Link href='/categories/create'>
         <Avatar
-          bg="sky.300"
-          size="lg"
+          bg='sky.300'
+          size='lg'
           style={{
             position: "fixed",
             bottom: "3vh",

@@ -10,11 +10,12 @@ import { fetchGroupResponse } from "@/mock/interface/testInterface";
 const page = () => {
   return (
     <>
-      <Box m="auto" w="90%">
-        <PageTitle title="グループカード一覧" />
-        <Box display="flex" flexWrap="wrap" gap="20px" pl="20px" pb="20px">
+      <Box m='auto' w='90%'>
+        <PageTitle title='グループカード一覧' />
+        <Box display='flex' flexWrap='wrap' gap='20px' pl='20px' pb='20px'>
           {testGroup.map((data: fetchGroupResponse) => (
             <GroupCard
+              paper_num={data.paper_num}
               key={data.group_id}
               group_id={data.group_id}
               name={data.group_name}
@@ -24,10 +25,10 @@ const page = () => {
         </Box>
       </Box>
 
-      <Link href="/categories/create">
+      <Link href='/categories/create'>
         <Avatar
-          bg="sky.300"
-          size="lg"
+          bg='sky.300'
+          size='lg'
           style={{
             position: "fixed",
             bottom: "3vh",

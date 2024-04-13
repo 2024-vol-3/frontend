@@ -6,7 +6,6 @@ import {
   CardBody,
   CardFooter,
   CardHeader,
-  Indicator,
   Link,
   Text,
   useBreakpointValue,
@@ -27,21 +26,21 @@ export default function IssueCard(props: IssueCardProps) {
 
   return (
     <>
-      <Card w={w} h="240px" bg="#fffeee" border="solid 1px #ddd">
-        <CardHeader h="100px">
-          <Text mt="-12px" isTruncated width="100%" as="b" textAlign="center">
+      <Card w={w} h='240px' bg='#fffeee' border='solid 1px #ddd'>
+        <CardHeader h='100px'>
+          <Text mt='-12px' isTruncated width='100%' as='b' textAlign='center'>
             {props.name}
           </Text>
         </CardHeader>
-        <Card zIndex="50" h="200px" gap="20px" bg="#fffccc">
-          <CardBody gap="20px">
-            <Text pt="12px" color="#555" textOverflow="ellipsis" lineClamp={4}>
+        <Card zIndex='50' h='200px' gap='20px' bg='#fffccc'>
+          <CardBody gap='20px'>
+            <Text pt='12px' color='#555' textOverflow='ellipsis' lineClamp={4}>
               解説：{props.description}
             </Text>
           </CardBody>
-          <CardFooter justifyContent="flex-end">
+          <CardFooter justifyContent='flex-end'>
             <Link href={`/categories/1/issues/1/edit`}>
-              <Button bg="#fff">編集</Button>
+              <Button bg='#fff'>編集</Button>
             </Link>
           </CardFooter>
         </Card>
