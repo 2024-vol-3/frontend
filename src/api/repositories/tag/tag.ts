@@ -1,28 +1,4 @@
-import {
-  CreateTagRequest,
-  UpdateTagRequest,
-} from "@/api/interface/tagInterface";
-
-export const createTagRepository = async (
-  tag: CreateTagRequest,
-  group_id: number,
-  issue_id: number
-) => {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_URL}/groups/${group_id}/issue/${issue_id}/tags`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(tag),
-      }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
+import { UpdateTagRequest } from "@/api/interface/tagInterface";
 
 export const updateTagRepository = async (
   tag_id: number,

@@ -10,32 +10,25 @@ import {
   updateTagRepository,
   deleteTagRepository,
 } from "../repositories/tag/tag";
-export const useFetchUserAllService = () => {
-  return useFetchUserAllRepository();
+export const useFetchUserAllService = (group_id: number, issue_id: number) => {
+  return useFetchTagAllRepository(group_id, issue_id);
 };
 
-export const useFetchUserByIdService = (user_id: number) => {
-  return useFetchUserByIdRepository(user_id);
-};
-
-export const useCreateUserService = async (
-  user_id: number | null,
-  new_user: CreateUserRequest
+export const useFetchUserByIdService = (
+  tag_id: number,
+  group_id: number,
+  issue_id: number
 ) => {
-  const user = await useFetchUserByIdRepository(user_id!);
-  if (user.user) {
-    return createUserRepository(new_user);
-  }
-  return;
+  return useFetchTagByIdRepository(tag_id, group_id, issue_id);
 };
 
 export const useUpdateUserService = async (
-  user_id: number,
-  user: UpdateUserRequest
+  tag_id: number,
+  tag_count: UpdateTagRequest
 ) => {
-  return updateUserRepository(user_id, user);
+  return updateTagRepository(tag_id);
 };
 
 export const useDeleteUserService = async (user_id: number) => {
-  return deleteUserRepository(user_id);
+  return deleteTagRepository(user_id);
 };
