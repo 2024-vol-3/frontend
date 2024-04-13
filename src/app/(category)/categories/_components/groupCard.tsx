@@ -1,11 +1,24 @@
 "use client";
 import StickyPaper from "@/app/(category)/categories/_components/stickyPaper";
-import {Box, Button, Card, CardBody, CardHeader, Indicator, Link, Text, useBreakpointValue, Center, Flex} from "@yamada-ui/react";
+import {
+  Box,
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Indicator,
+  Link,
+  Text,
+  useBreakpointValue,
+  Center,
+  Flex,
+  CardFooter,
+} from "@yamada-ui/react";
 
 type GroupCardProps = {
   name: string;
   description: string;
-  d: number;
+  group_id: number;
 };
 export default function GroupCard(props: GroupCardProps) {
   const w = useBreakpointValue({
@@ -18,32 +31,42 @@ export default function GroupCard(props: GroupCardProps) {
 
   return (
     <>
-      <Card w={w} h='240px' bg='#fffeee' border='solid 1px #ddd'>
+      <Card w={w} h="240px" bg="#fffeee" border="solid 1px #ddd">
         <Flex>
           {/* 付箋が減る場合、1枚当たり-40pxで調整 xBlackTea */}
-          <Box w='calc(100% - 155px)'>
+          <Box w="calc(100% - 155px)">
             <CardHeader>
-              <Text pt='12px' lineClamp={1} as='b' >
+              <Text pt="12px" lineClamp={1} as="b">
                 {props.name}
               </Text>
             </CardHeader>
           </Box>
-          <StickyPaper/>
+          <StickyPaper />
         </Flex>
-        <Card zIndex='50' h='200px' gap='20px' bg='#fffccc'>
-          <CardBody gap='20px'>
-            <Text lineClamp={2} pt='12px' color='#555'>{props.description}</Text>
-            <Box w='full' display='flex' justifyContent='space-around' alignItems='center'>
-              <Link href={`/categories/${props.d}/issues/1/edit`}>
-                <Button bg='#fff' variant='solid'>編集</Button>
-              </Link>
-              <Indicator showZero={false} withBorder label={90} variant='solid'>
-                <Link href={`/categories/${props.d}/issues/1`}>
-                  <Button bg='#fff' variant='solid'>解く</Button>
-                </Link>
-              </Indicator>
-            </Box>
+        <Card zIndex="50" h="200px" gap="20px" bg="#fffccc">
+          <CardBody gap="20px">
+            <Text lineClamp={2} pt="12px" color="#555">
+              {props.description}
+            </Text>
           </CardBody>
+          <CardFooter
+            w="full"
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <Link href={`/categories/${props.group_id}`}>
+              <Button bg="#fff" variant="solid">
+                一覧
+              </Button>
+            </Link>
+            <Link href={`/categories/${props.group_id}/issues/1`}>
+              <Button bg="#fff" variant="solid">
+                解く
+              </Button>
+            </Link>
+            {/* </Indicator> */}
+          </CardFooter>
         </Card>
       </Card>
     </>

@@ -1,4 +1,4 @@
-import { Box, Button, Link } from "@yamada-ui/react";
+import { Box, Button, Link, Image } from "@yamada-ui/react";
 import LoginButton from "./LoginButton";
 
 export default function Header() {
@@ -13,8 +13,13 @@ export default function Header() {
         p="0 20px"
         bg="neutral.900"
       >
-        <Link href="/categories" style={{textDecoration: "none"}}>
-          <div style={{ color: "#fff" }}>サイトロゴ(仮)</div>
+        <Link href="/categories" style={{ textDecoration: "none" }}>
+          <Image
+            src="/Recallllll_WhiteLogo.png"
+            width={200}
+            height={50}
+            alt="Recallllll_WhiteLogo"
+          />
         </Link>
         <Box display="flex" alignItems="center" gap="10px" h="100%">
           <Link h="65%" href="/categories/create">

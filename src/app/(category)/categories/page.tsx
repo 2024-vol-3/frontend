@@ -13,12 +13,12 @@ const page = () => {
       <Box m="auto" w="90%">
         <PageTitle title="グループカード一覧" />
         <Box display="flex" flexWrap="wrap" gap="20px" pl="20px" pb="20px">
-          {testGroup.map((d: fetchGroupResponse) => (
+          {testGroup.map((data: fetchGroupResponse) => (
             <GroupCard
-              key={d.group_id}
-              name={d.group_name}
-              description={d.group_description}
-              d={d.group_id}
+              key={data.group_id}
+              group_id={data.group_id}
+              name={data.group_name}
+              description={data.group_description}
             />
           ))}
         </Box>
