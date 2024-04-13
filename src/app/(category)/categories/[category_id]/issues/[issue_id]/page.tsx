@@ -1,28 +1,27 @@
-"use client"
+"use client";
 import React from "react";
 import { Box, Center } from "@yamada-ui/react";
 import PageTitle from "@/app/_components/pageTitle";
 import SolveForm from "./_components/SolveForm";
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
 import { SolveContextProvider } from "./provider/SolveProvider";
+import { testGroup } from "@/mock/data/mock_data";
 
 const Page = () => {
+  const group = testGroup[1];
 
-    const params = useParams();
-    const { issue_id } = params;
-
-return (
+  return (
     <>
-    <SolveContextProvider>
+      <SolveContextProvider>
         <Center>
-            <Box w="1000px" m="20px">
-            <PageTitle title={`カテゴリー名 (NaN / ${issue_id}問目)`} />
+          <Box w="1000px" m="20px">
+            <PageTitle title={`${group.group_name}`} />
             <SolveForm />
-            </Box>
+          </Box>
         </Center>
-    </SolveContextProvider>
+      </SolveContextProvider>
     </>
-);
+  );
 };
 
 export default Page;

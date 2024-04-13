@@ -14,7 +14,8 @@ const StickyPaper = () => {
   };
   const isBoxClicked = (boxNumber: number) => clickedBoxes.includes(boxNumber);
   const getOpacity = (boxNumber: number) => (isBoxClicked(boxNumber) ? 0 : 1);
-  const getTransform = (boxNumber: number) => (isBoxClicked(boxNumber) ? "translateY(-50px)" : "none");
+  const getTransform = (boxNumber: number) =>
+    isBoxClicked(boxNumber) ? "translateY(-50px)" : "none";
 
   return (
     <>
@@ -60,7 +61,7 @@ const StickyPaper = () => {
             }}
             onClick={() => handleBoxClick(2)}
           >
-            <p>2</p>
+            <p>7</p>
           </Box>
           <Box
             zIndex="100"
@@ -81,7 +82,7 @@ const StickyPaper = () => {
             }}
             onClick={() => handleBoxClick(8)}
           >
-            <p>8</p>
+            <p>16</p>
           </Box>
           <Box
             zIndex="100"
@@ -102,7 +103,7 @@ const StickyPaper = () => {
             }}
             onClick={() => handleBoxClick(29)}
           >
-            <p>29</p>
+            <p>35</p>
           </Box>
         </Box>
       </Box>
