@@ -27,23 +27,23 @@ export const testIssue: fetchIssueResponse[] = [
     group_id: 1,
     paper_num: 4,
   },
-  {
-    issue_id: 4,
-    title: "メッセージダイジェストの利用目的",
-    contents: "メッセージが改ざんされていないことを確認する",
-    day_fragment: true,
-    group_id: 1,
-    paper_num: 4,
-  },
-  {
-    issue_id: 5,
-    title:
-      "企業の様々な活動を介して得られた大量のデータを目的別に整理･統合して蓄積しておき、意思決定支援などに利用するもの",
-    contents: "データウェアハウス",
-    day_fragment: true,
-    group_id: 1,
-    paper_num: 4,
-  },
+  // {
+  //   issue_id: 4,
+  //   title: "メッセージダイジェストの利用目的",
+  //   contents: "メッセージが改ざんされていないことを確認する",
+  //   day_fragment: true,
+  //   group_id: 1,
+  //   paper_num: 4,
+  // },
+  // {
+  //   issue_id: 5,
+  //   title:
+  //     "企業の様々な活動を介して得られた大量のデータを目的別に整理･統合して蓄積しておき、意思決定支援などに利用するもの",
+  //   contents: "データウェアハウス",
+  //   day_fragment: true,
+  //   group_id: 1,
+  //   paper_num: 4,
+  // },
 ];
 
 export const testGroup = [
@@ -51,7 +51,7 @@ export const testGroup = [
     group_id: 1,
     group_name: "基本情報対策",
     group_description: "基本情報科目A過去問から",
-    issue_count: 2,
+    issue_count: 3,
   },
   {
     group_id: 2,
