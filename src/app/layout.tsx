@@ -22,9 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="ja">
+      <html lang='ja'>
+        <head>
+          <link rel='manifest' href='/manifest.json' />
+          <link rel='apple-touch-icon' href='/icon-384x384.png'></link>
+          <meta name='theme-color' content='#b8e986' />
+        </head>
+
         <body className={inter.className}>
-          <ColorModeScript type="cookie" nonce="testing" />
+          <ColorModeScript type='cookie' nonce='testing' />
           <UIProvider colorModeManager={{ ...colorModeManager }.cookieStorage}>
             {children}
           </UIProvider>
