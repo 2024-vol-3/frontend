@@ -1,5 +1,5 @@
 import React from "react";
-import { IssueForm } from "@/app/(home)/groups/[group_id]/issues/create/_components/IssueForm";
+import { IssueForm } from "@/app/(main)/groups/[group_id]/issues/create/_components/IssueForm";
 import { Box, Center } from "@yamada-ui/react";
 import PageTitle from "@/app/_components/pageTitle";
 
