@@ -1,13 +1,4 @@
-import {
-  Button,
-  Link,
-  Text,
-  Heading,
-  Center,
-  Box,
-  Flex,
-  Card,
-} from "@yamada-ui/react";
+import { Button, Link, Text, Heading, Box, Flex } from "@yamada-ui/react";
 import Image from "next/image";
 
 export default function Home() {
