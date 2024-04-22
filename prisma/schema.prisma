@@ -1,5 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
   provider = "prisma-client-js"
@@ -10,3 +8,27 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model User {
+  id        Int        @id @default(autoincrement())
+  userName  String
+  categories Category[]
+}
+
+model Issue {
+  issueId     Int      @id @default(autoincrement())
+  title       String
+  contents    String
+  dayFragment Boolean
+  categoryId  Int
+  tagCount    Int
+  createdAt   DateTime
+  category    Category @relation(fields: [categoryId], references: [categoryId])
+}
+
+model Category {
+  categoryId   Int     @id @default(autoincrement())
+  categoryName String
+  userId       Int
+  user         User    @relation(fields: [userId], references: [id])
+  issues       Issue[]
+}
